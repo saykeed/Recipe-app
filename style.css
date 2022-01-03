@@ -87,11 +87,11 @@ header{
 }
 
 #randomMeal{
-    border: 1px solid red;
     margin: 1rem;
     border-radius: 10px;
     overflow: hidden;
     height: auto;
+    box-shadow: 3px 3px 5px  rgba(0, 0, 0, 0.300), -3px -3px 5px  rgba(0, 0, 0, 0.300);
 }
 
 #randomMeal img{
@@ -105,8 +105,15 @@ header{
     align-items: center;
     justify-content: space-between;
     height: 50px;
-    border: 1px solid blue;
     padding: 1rem;
+}
+
+#randomMealDesc p{
+    font-weight: 700;
+}
+
+#rating{
+    text-align: center;
 }
 
 #rating i{
