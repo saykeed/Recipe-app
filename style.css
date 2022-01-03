@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+}
+
+header{
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+#appLogo{
+    width: 100px;
+}
+
+#icons{
+    font-size: 40px;
+}
+
+#quick_meals{
+    height: 150px;
+    background-color: rgba(166, 233, 248, 0.193);
+    display: flex;
+    overflow: scroll;
+    padding: 1rem;
+}
+
+#qmeal{
+    height: 100%;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#qmeal img{
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#qmeal p{
+    margin: 5px 0;
+}
+
+#infoBox{
+    background: linear-gradient(to right, hsl(199, 73%, 65%), hsl(273, 75%, 66%));
+    padding: 1.5rem 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    color: white;
+}
+
+#infoBox h2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#infoBox h2 span{
+    cursor: pointer;
+}
+
+#StartBtn{
+    border: 1px solid white;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.296);
+    font-weight: 800;
+    margin: 10px auto;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+#StartBtn:hover{
+    background-color: transparent;
+}
+
+#randomMeal{
+    border: 1px solid red;
+    margin: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    height: auto;
+}
+
+#randomMeal img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#randomMealDesc{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    border: 1px solid blue;
+    padding: 1rem;
+}
+
+#rating i{
+    color: orange;
+    font-size: 20px;
+}
+
+#rating i:last-child{
+    color: rgba(0, 0, 0, 0.337)
+}
