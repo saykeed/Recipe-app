@@ -20,15 +20,27 @@ header{
     width: 100px;
 }
 
-#icons{
+header a{
+    text-decoration: none;
+}
+
+header i{
     font-size: 30px;
+}
+
+#toggler{
+    cursor: pointer;
+}
+
+#search{
+    cursor: pointer;
 }
 
 #quick_meals{
     height: auto;
     background-color: rgba(166, 233, 248, 0.193);
     display: flex;
-    overflow: scroll;
+    overflow-x: scroll;
     padding: 1rem;
 }
 
@@ -88,7 +100,7 @@ header{
     background-color: transparent;
 }
 
-#randomMeal{
+#randomMeal, #searchedMeal{
     margin: 1rem;
     border-radius: 10px;
     overflow: hidden;
@@ -96,24 +108,25 @@ header{
     box-shadow: 3px 3px 5px  rgba(0, 0, 0, 0.300), -3px -3px 5px  rgba(0, 0, 0, 0.300);
 }
 
-#randomMeal img{
+#randomMeal img, #searchedMeal img{
     width: 100%;
-    height: auto;
+    max-height: 250px;
     object-fit: cover;
+    object-position: center;
 }
 
-#randomMealDesc{
+#randomMealDesc, #searchedMealDesc{
     padding: 1rem;
 }
 
-#randomMealDesc p{
+#randomMealDesc p, #searchedMealDesc p{
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-weight: 700;
 }
 
-#randomMealDesc p i{
+#randomMealDesc p i, #searchedMealDesc p i{
     color: hotpink;
     cursor: pointer;
     transition: all 3s;
@@ -132,3 +145,29 @@ header{
 #rating i:last-child{
     color: rgba(0, 0, 0, 0.337)
 }
+
+
+/* styling for the search page*/
+
+#searchHeader{
+    justify-content: center;
+}
+#searchDiv{
+    margin: 10px auto;
+    height: 40px;
+    max-width: 400px;
+}
+#searchMeal{
+    height: 100%;
+    width: 100%;
+    border: 1px solid blue;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+#searchInputError{
+    color: red;
+    margin: 10px auto;
+    width: fit-content;
+}
+
