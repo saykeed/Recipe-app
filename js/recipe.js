@@ -20,10 +20,12 @@ let getFavMeal =  async function (id) {
         let FmealRes  = await Fmeal.json();
         FmealData = FmealRes.meals[0];
         favMealDiv.innerHTML += `
-        <div id="qmeal">
-            <img src="${FmealData.strMealThumb}" alt="">
-            <p>${FmealData.strMeal}</p>
-        </div>
+        <a href="mealinfo.html?id=${FmealData.idMeal}">
+            <div id="qmeal">
+                <img src="${FmealData.strMealThumb}" alt="">
+                <p>${FmealData.strMeal}</p>
+            </div>
+        </a>
         `
     }
     
@@ -36,7 +38,7 @@ let getRandomMeal = async function () {
     RmealData = RmealRes.meals[0];
 
     getRandomMealDiv.innerHTML = `
-    <img src="${RmealData.strMealThumb}" alt="Random meal">
+        <a href="mealinfo.html?id=${RmealData.idMeal}"><img src="${RmealData.strMealThumb}" alt="Random meal"></a>
         <div id="randomMealDesc">
             <p>${RmealData.strMeal}<i class="material-icons" onclick="like()">favorite_border</i></p>
             

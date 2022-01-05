@@ -25,7 +25,7 @@ let searchForMeal = async function () {
         
         getSearchResultBox.innerHTML += `
             <div id="searchedMeal">
-                <img src="${SmealData[i].strMealThumb}" alt="Searched meal">
+                <a href="mealinfo.html?id=${SmealData[i].idMeal}"><img src="${SmealData[i].strMealThumb}" alt="Searched meal"></a>
                 <div id="searchedMealDesc">
                     <p>${SmealData[i].strMeal} <i class="material-icons" onclick="like()">favorite_border</i></p>
                     <div id="rating">
@@ -37,6 +37,7 @@ let searchForMeal = async function () {
                     </div>
                 </div>
             </div>
+        
         `
     }
     }
