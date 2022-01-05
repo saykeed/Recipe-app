@@ -14,6 +14,8 @@ header{
     align-items: center;
     justify-content: space-between;
     height: 70px;
+    background-color: black;
+    
 }
 
 #appLogo{
@@ -26,6 +28,7 @@ header a{
 
 header i{
     font-size: 30px;
+    color: white;
 }
 
 #toggler{
@@ -149,11 +152,12 @@ header i{
 
 /* styling for the search page*/
 
-#searchHeader{
+#otherPageHeader{
     justify-content: center;
 }
 #searchDiv{
     margin: 10px auto;
+    padding: 10px;
     height: 40px;
     max-width: 400px;
 }
@@ -171,3 +175,45 @@ header i{
     width: fit-content;
 }
 
+/* styling for the meal-info page  */
+
+#mealInfo{
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 500px;
+    border: 1px solid red;
+}
+
+#mealInfo img{
+    width: 100%;
+    height: 250px;
+}
+
+#others{
+    display: flex;
+    flex-direction: column;
+}
+
+#others a{
+    text-decoration: none;
+}
+
+#mealBtn{
+    padding: 10px;
+    text-align: center;
+    background-color: red;
+    border-radius: 20px;
+    margin: 5px auto;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+#mealBtn:active{
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+}
