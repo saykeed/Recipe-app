@@ -31,11 +31,17 @@ header i{
     color: white;
 }
 
+
 #toggler{
     cursor: pointer;
 }
 
 #search{
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#cart{
     cursor: pointer;
 }
 
@@ -133,6 +139,7 @@ header i{
     color: hotpink;
     cursor: pointer;
     transition: all 3s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #rating{
@@ -181,7 +188,6 @@ header i{
     margin: 1rem auto;
     padding: 1rem;
     max-width: 500px;
-    border: 1px solid red;
 }
 
 #mealInfo img{
@@ -207,9 +213,9 @@ header i{
     width: 100%;
     color: white;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .5s;
 }
-
-
 
 
 #mealBtn:active{
@@ -217,3 +223,12 @@ header i{
     color: red;
     border: 1px solid red;
 }
+
+#instruction{
+    border: 1px solid blue;
+    margin: 5px auto;
+    display: none;
+    transition: all 1s;
+}
+
+
