@@ -9,7 +9,7 @@ let getCartedMealIdFromLS = function () {
     getCartedMeal(cartMealsId);
 }
 
-
+/*
 
 // fetching carted meal data section
 let getCartedMeal =  async function (id) {
@@ -32,3 +32,5 @@ let getCartedMeal =  async function (id) {
 
 // invoking this function(s) whenever the cart page loads
 getCartedMealIdFromLS();
+
+*/
