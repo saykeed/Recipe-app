@@ -3,6 +3,7 @@
 let getRandomMealDiv = document.querySelector("#randomMeal");
 let favMealDiv = document.querySelector("#quick_meals");
 let RmealData;
+let getCartWindow = document.querySelector("#cartwindow");
 
 
 // fetching data section
@@ -90,7 +91,6 @@ let saveToLS = (mealId) => {
     oldData.push(newData);
 
     localStorage.setItem('favMealId', JSON.stringify(oldData))
-    
 }
 
 let delFromLS = (mealId) => {
@@ -99,12 +99,26 @@ let delFromLS = (mealId) => {
     localStorage.setItem('favMealId', JSON.stringify(favMealsId.filter(favId => favId !== mealId)))
 }
 
-
-
 let getFavMealIdFromLS = function () {
     const favMealsId = JSON.parse(localStorage.getItem('favMealId'));
     
     getFavMeal(favMealsId);
+}
+
+
+
+// function that get the number of carted meals and display at top of the cart icon
+
+let numOfCartedMeals = () => {
+    const cartedMealsIds =  JSON.parse(localStorage.getItem('cartedMealId'));
+    let cartNum = cartedMealsIds.length;
+    if (cartNum < 1) {
+        getCartWindow.style.display = "none";
+    } else {
+        getCartWindow.style.display = "block";
+        getCartWindow.innerText = cartNum;
+    }
+    
 }
 
 
@@ -115,5 +129,6 @@ let getFavMealIdFromLS = function () {
 // calling this function onload
 getRandomMeal();
 getFavMealIdFromLS();
+numOfCartedMeals();
 
 
