@@ -8,6 +8,7 @@ let RmealData;
 // fetching data section
 
 let getFavMeal =  async function (id) {
+   
     if (id == null) {
         favMealDiv.innerHTML = "Your Favourite meals will appear here"
     } else {
@@ -18,7 +19,7 @@ let getFavMeal =  async function (id) {
         let FmealUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + id[i];
         let Fmeal = await fetch(FmealUrl);
         let FmealRes  = await Fmeal.json();
-        FmealData = FmealRes.meals[0];
+        let FmealData = FmealRes.meals[0];
         favMealDiv.innerHTML += `
         <a href="mealinfo.html?id=${FmealData.idMeal}">
             <div id="qmeal">
@@ -40,7 +41,7 @@ let getRandomMeal = async function () {
     getRandomMealDiv.innerHTML = `
         <a href="mealinfo.html?id=${RmealData.idMeal}"><img src="${RmealData.strMealThumb}" alt="Random meal"></a>
         <div id="randomMealDesc">
-            <p>${RmealData.strMeal}<i class="material-icons" onclick="like()">favorite_border</i></p>
+            <p>${RmealData.strMeal}<i class="material-icons" onclick="like(${RmealData.idMeal})">favorite_border</i></p>
             
             <div id="rating">
                 <i class="material-icons">star</i>
@@ -62,24 +63,26 @@ let getRandomMeal = async function () {
 // function that runs when the heart button is clicked
 let like = function () {
     let getFavBtn = document.querySelector("#randomMealDesc p i");
-    if (getFavBtn.innerText === "favorite") {
-        alert("It has been added to your Favourite Meal already")
+    let mealId = RmealData.idMeal;
+    const favMealsId = JSON.parse(localStorage.getItem('favMealId'));
+    if (favMealsId !== null && favMealsId.includes(mealId)) {
+        getFavBtn.innerText = "favorite_border";
+        delFromLS(mealId)
+        getFavMealIdFromLS();
     } else {
         getFavBtn.innerText = "favorite";
-        let mealId = RmealData.idMeal;
         saveToLS(mealId)
         getFavMealIdFromLS();
     }
-    
 }
 
 
-// saving and getting from local storage section
+// saving, deleting and getting from local storage section
 
 let saveToLS = (mealId) => {
     let newData = mealId;
 
-    if (localStorage.getItem('favMealId') == null) {
+    if (localStorage.getItem('favMealId') === null) {
         localStorage.setItem('favMealId', '[]');
     }
 
@@ -89,6 +92,14 @@ let saveToLS = (mealId) => {
     localStorage.setItem('favMealId', JSON.stringify(oldData))
     
 }
+
+let delFromLS = (mealId) => {
+    const favMealsId = JSON.parse(localStorage.getItem('favMealId'));
+
+    localStorage.setItem('favMealId', JSON.stringify(favMealsId.filter(favId => favId !== mealId)))
+}
+
+
 
 let getFavMealIdFromLS = function () {
     const favMealsId = JSON.parse(localStorage.getItem('favMealId'));
@@ -101,7 +112,8 @@ let getFavMealIdFromLS = function () {
 
 
 
-
 // calling this function onload
 getRandomMeal();
 getFavMealIdFromLS();
+
+

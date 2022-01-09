@@ -1,24 +1,25 @@
 
 
+
+
 let getMealInfoDiv = document.querySelector("#mealInfo");
 let clickedMealId = new URLSearchParams(window.location.search).get('id');
-let getInstruction = document.querySelector("#instruction");
+
 let instructionStatus = false;
 
 
 // fetching the clicked meal info
-
 let getClickedMeal = async function () {
     let Cmeal = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + clickedMealId);
 
     let CmealRes  = await Cmeal.json();
-    CmealData = CmealRes.meals[0];
+    let CmealData = CmealRes.meals[0];
 
     getMealInfoDiv.innerHTML = `
 
         <img src="${CmealData.strMealThumb}" alt="clicked meal">
         <div id="randomMealDesc">
-            <p>${CmealData.strMeal} <i class="material-icons" onclick="like()">favorite_border</i></p>
+            <p>${CmealData.strMeal} <i id="favIcon" class="material-icons" onclick="likeMeal()"></i></p>
             <div id="rating">
                 <i class="material-icons">star</i>
                 <i class="material-icons">star</i>
@@ -38,15 +39,14 @@ let getClickedMeal = async function () {
         </div>
 
     `
+    checkIfMealIsAddedToFav();
     
 }
 
 // function for loading how to prepare the meal instruction
-
-
 let loadInstructionDiv = function () {
-    console.log(instructionStatus);
-    
+    let getInstruction = document.querySelector("#instruction");
+
     if (instructionStatus === false) {
         getInstruction.style.display = "block";
         instructionStatus = true;
@@ -59,6 +59,14 @@ let loadInstructionDiv = function () {
 
 
 
+// function that runs when the heart button is clicked
+let likeMeal = function () {
+    alert("working")
+}
+
+
+
+// functions that runs when when add to cart button is clicked
 let addtoCart = function () {
     saveToLS(clickedMealId)
 }
@@ -78,4 +86,26 @@ let saveToLS = (mealId) => {
     localStorage.setItem('cartedMealId', JSON.stringify(oldData))
 }
 
+
+
+// functinn to check if meal has already added to favorite meal
+let checkIfMealIsAddedToFav = () => {
+    const favMealsId = JSON.parse(localStorage.getItem('favMealId'));
+    let getFavIcon = document.querySelector("#favIcon");
+
+    if (favMealsId !== null && favMealsId.includes(clickedMealId)) {
+        getFavIcon.innerText = "favorite";
+    } else {
+        getFavIcon.innerText = "favorite_border"
+    }
+}
+
+
+
+
+
+
+
 getClickedMeal()
+
+
