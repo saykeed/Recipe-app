@@ -4,9 +4,6 @@
     box-sizing: border-box;
 }
 
-body{
-
-}
 
 header{
     display: flex;
@@ -43,6 +40,23 @@ header i{
 
 #cart{
     cursor: pointer;
+}
+
+#cartLink{
+    position: relative;
+}
+
+#cartwindow{
+    color: white;
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    background-color: orange;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 10px;
+    padding: 2px 4px;
+    display: none;
 }
 
 #quick_meals{
@@ -218,6 +232,17 @@ header i{
 }
 
 
+.docBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.docBtn i{
+    transition: .5s;
+    
+}
+
 #mealBtn:active{
     background-color: white;
     color: red;
@@ -225,9 +250,9 @@ header i{
 }
 
 #instruction{
-    border: 1px solid blue;
     margin: 5px auto;
     display: none;
+    padding: 10px;
     transition: all 1s;
 }
 
