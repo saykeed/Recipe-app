@@ -5,6 +5,7 @@
 }
 
 
+
 header{
     display: flex;
     padding: 1rem;
@@ -13,6 +14,13 @@ header{
     height: 70px;
     background-color: black;
     
+}
+
+#animate{
+    padding: 20px;
+    background-color: red;
+    height: 100px;
+    margin: 10px auto;
 }
 
 #appLogo{
@@ -257,3 +265,69 @@ header i{
 }
 
 
+/* styling for the cart page */
+
+#cartHeadTitle{
+    color: rgb(255, 102, 0);
+}
+
+#mealcart{
+    height: 150px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#checkLabel{
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#checkDiv{
+}
+
+#checkLabel img{
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    object-fit: cover;
+    object-position: cover;
+}
+
+
+#checkinfo{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#lowerInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#quantity{
+    border: 1px solid rgba(0, 0, 0, 0.268);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    border-radius: 25px;
+}
+
+
+#quantity span{
+    font-size: 15px;
+    padding: 12px;
+    border-right: 1px solid rgba(0, 0, 0, 0.268);
+}
+
+#quantity span:last-child{
+    border: none;
+}
