@@ -1,4 +1,9 @@
 let getCartMealDiv = document.querySelector("#cartDiv");
+let getPlusMealQuantity = document.querySelector("#plus");
+let getMinusMealQuantity = document.querySelector("#minus");
+let getMealQuantityValue = document.querySelector("#value");
+
+getMealQuantityValue.innerHTML = 1;
 
 
 
@@ -9,7 +14,7 @@ let getCartedMealIdFromLS = function () {
     getCartedMeal(cartMealsId);
 }
 
-/*
+
 
 // fetching carted meal data section
 let getCartedMeal =  async function (id) {
@@ -30,7 +35,45 @@ let getCartedMeal =  async function (id) {
 
 
 
-// invoking this function(s) whenever the cart page loads
-getCartedMealIdFromLS();
 
-*/
+let updateMealQuantity = function (x) {
+    // where x is the element that called this function
+    if (x.innerText === "+") {
+        getMealQuantityValue.innerText++;
+    } else if (x.innerText === "-") {
+        if (getMealQuantityValue.innerText < 2) {
+            alert("Minimum meal is 1")
+        } else{
+            getMealQuantityValue.innerText--;
+        }
+        
+    }
+}
+
+// function to disable the minus button whenever meal quantity is 1
+// to avoid setting meal quantity to a negative integers or 0
+let checkCurrentMealQuantity = () => {
+    
+    if (getMealQuantityValue.innerText > 1) {
+       getMinusMealQuantity.style.backgroundColor = "white"
+    } else if (getMealQuantityValue.innerText < 2) {
+        getMinusMealQuantity.style.backgroundColor = "rgba(0, 0, 0, 0.193)"
+     }
+}
+
+ let checkMealQuantityStatus = () => {
+    setInterval(checkCurrentMealQuantity, 100)
+ }
+
+
+
+
+
+
+
+
+
+
+// invoking this function(s) whenever the cart page loads
+// getCartedMealIdFromLS();
+checkMealQuantityStatus()
