@@ -20,7 +20,7 @@
             <label for="checking" id="checkLabel">
                 <div id="checkDiv">
                     <input type="checkbox" id="checking">
-                    <span class="customCheckbox"></span>
+                    <div class="customCheckbox"></div>
                 </div>
                 <img src="images/rchicken.jpg" alt="">
             </label>
@@ -28,13 +28,13 @@
                 <p>teh name of the meal</p>
                 <div id="lowerInfo">
                     <div id="price">
-                        <p>NGN 999.99</p>
-                        <p>Free Shipping</p>
+                        <p id="priceAmount">NGN 999.99</p>
+                        <p id="shipping">Free Shipping</p>
                     </div>
                     <div id="quantity">
-                        <span id="minus">-</span>
-                        <span id="value">1</span>
-                        <span id="plus">+</span>
+                        <span id="minus" onclick="updateMealQuantity(this)">-</span>
+                        <span id="value"></span>
+                        <span id="plus" onclick="updateMealQuantity(this)">+</span>
                     </div>
                 </div>
             </div>
