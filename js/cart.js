@@ -2,8 +2,11 @@ let getCartMealDiv = document.querySelector("#cartDiv");
 let getPlusMealQuantity = document.querySelector("#plus");
 let getMinusMealQuantity = document.querySelector("#minus");
 let getMealQuantityValue = document.querySelector("#value");
+let getMealPrice = document.querySelector("#priceAmount span")
+let defaultMealPrice = 1000;
 
 getMealQuantityValue.innerHTML = 1;
+getMealPrice.innerHTML = defaultMealPrice;
 
 
 
@@ -40,11 +43,14 @@ let updateMealQuantity = function (x) {
     // where x is the element that called this function
     if (x.innerText === "+") {
         getMealQuantityValue.innerText++;
+        getMealPrice.innerText = getMealQuantityValue.innerText * defaultMealPrice;
     } else if (x.innerText === "-") {
         if (getMealQuantityValue.innerText < 2) {
             alert("Minimum meal is 1")
         } else{
             getMealQuantityValue.innerText--;
+            getMealPrice.innerText = getMealQuantityValue.innerText * defaultMealPrice;
+
         }
         
     }
