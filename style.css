@@ -266,32 +266,32 @@ header i{
 }
 
 #mealcart{
-    height: 150px;
-    border: 1px solid red;
+    height: 120px;
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    position: relative;
 }
 
 #checkLabel{
-    width: 30%;
+    width: 35%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#checkDiv{
-    position: relative;
-}
+/*the div for the checkbox in the cart page*/
+
 
 #checkDiv input{
-    position: absolute;
     display: none;
 }
 
 #checkDiv .customCheckbox{
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     height: 20px;
     width: 20px;
     border-radius: 20px;
@@ -304,16 +304,17 @@ header i{
 }
 
 #checkLabel img{
-    width: 80px;
-    height: 80px;
-    border-radius: 80px;
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
     object-fit: cover;
     object-position: cover;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.35);
 }
 
 
 #checkinfo{
-    width: 65%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -326,6 +327,7 @@ header i{
 }
 
 #priceAmount{
+    font-size: 12px;
     font-weight: 700;
 }
 
@@ -358,4 +360,64 @@ header i{
 #minus, #plus{
     cursor: pointer;
     -webkit-tap-highlight-color: orangered;
+}
+
+#cartcheckoutDiv{
+    background-color: rgba(0, 0, 0, 0.104);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#checkoutLabel{
+    display: flex;
+    align-items: center;
+}
+
+#checkoutLabel span{
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+#checkoutBtnDiv{
+    display: flex;
+    align-items: center;
+}
+
+#checkoutPrice{
+    margin-right: 10px;
+}
+
+#checkoutBtn{
+    padding: 10px 15px;
+    background: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(255, 89, 0), yellow);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 10px 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#checkoutDiv input{
+    display: none;
+}
+
+.customCheckoutbox{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.44);
+}
+
+#checkoutDiv input:checked ~ .customCheckoutbox{
+    border: none;
+    background: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(255, 89, 0), yellow);
 }
