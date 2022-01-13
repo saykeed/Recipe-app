@@ -351,6 +351,7 @@ header i{
     font-size: 15px;
     padding: 10px 11px;
     border-right: 1px solid rgba(0, 0, 0, 0.268);
+    
 }
 
 #quantity span:last-child{
@@ -360,6 +361,11 @@ header i{
 #minus, #plus{
     cursor: pointer;
     -webkit-tap-highlight-color: orangered;
+    font-weight: 700;
+}
+
+#minus{
+    background-color: rgba(0, 0, 0, 0.131);
 }
 
 #cartcheckoutDiv{
