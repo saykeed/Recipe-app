@@ -1,9 +1,28 @@
 
 
+let getTogMenu = document.querySelector("#togmenu");
+let togMenuStatus = false;
 let getRandomMealDiv = document.querySelector("#randomMeal");
 let favMealDiv = document.querySelector("#quick_meals");
 let RmealData;
 let getCartWindow = document.querySelector("#cartwindow");
+
+
+// section for the menu toggling
+
+let popMenu = function () {
+  if (togMenuStatus === false) {
+    getTogMenu.style.cssText = "margin-left: 0; opacity: 1;";
+    togMenuStatus = true;
+  } else {
+    getTogMenu.style.cssText = "opacity: 0; margin-left: -260px;";
+    togMenuStatus = false;
+  }
+}
+
+
+
+
 
 
 // fetching data section
@@ -22,16 +41,20 @@ let getFavMeal =  async function (id) {
         let FmealRes  = await Fmeal.json();
         let FmealData = FmealRes.meals[0];
         favMealDiv.innerHTML += `
-        <a id="qmeal_link" href="mealinfo.html?id=${FmealData.idMeal}">
             <div id="qmeal">
+               <a id="qmeal_link" href="mealinfo.html?id=${FmealData.idMeal}"> 
                 <img src="${FmealData.strMealThumb}" alt="">
+                </a>
                 <p>${FmealData.strMeal}</p>
+                <div id="re${FmealData.idMeal}" class="remove" onclick="removeFav()">Remove</div>
             </div>
-        </a>
         `
     }
     
 }
+
+
+
 
 let getRandomMeal = async function () {
     let Rmeal = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');

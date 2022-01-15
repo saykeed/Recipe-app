@@ -98,7 +98,6 @@ let updateMealQuantity = function (x, y, p) {
          
     } else if (x.innerText === "-") {
         if (mealQuantity.innerText < 2) {
-          
             alert("Minimum meal is 1")
         } else{
           if (getCheckBox.checked) {
@@ -122,7 +121,7 @@ let updateMealQuantity = function (x, y, p) {
             let getupCheckedMealPrice = document.querySelector("#a" + y + " #priceAmount span");
             let upmealTotalPrice = getupCheckedMealPrice.innerText;
             
-            addMealPriceToCheckoutAmount(upmealTotalPrice);
+                addMealPriceToCheckoutAmount(upmealTotalPrice);
         }
     }
 }
