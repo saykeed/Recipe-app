@@ -13,11 +13,9 @@
         <a href="index.html"><img id="appLogo" src="images/app_logo.png" alt="app Logo"></a>
         <h1 id="cartHeadTitle">Cart(<span>4</span>)</h1>
     </header>
-
-    <h1>Sorry, This cart page is under construction</h1>
-    <div id="cartDiv">
-        
-    </div>
+    
+    <!-- the carted meal are loaded with js-->
+    <div id="cartDiv"></div>
     
     <div id="cartcheckoutDiv">
         <label for="all" id="checkoutLabel">
@@ -27,9 +25,10 @@
             </div>
             <span>All</span>
         </label>
+         
         <div id="checkoutBtnDiv">
-            <p id="checkoutPrice">NGN <span>1000</span></p>
-            <div id="checkoutBtn">Checkout (<span>2</span>)</div>
+            <p id="checkoutPrice">NGN <span>0</span>.00</p>
+            <div id="checkoutBtn" onclick="checkingOut()">Checkout (<span>0</span>)</div>
         </div>
 
     </div>
@@ -40,27 +39,5 @@
 
 <!--
 
-    <div id="mealcart">
-            <label for="checking" id="checkLabel">
-                <div id="checkDiv">
-                    <input type="checkbox" id="checking">
-                    <div class="customCheckbox"></div>
-                </div>
-                <img src="images/rchicken.jpg" alt="">
-            </label>
-            <div id="checkinfo">
-                <p>teh name of the meal the name of the meal  </p>
-                <div id="lowerInfo">
-                    <div id="price">
-                        <p id="priceAmount">NGN <span></span>.00</p>
-                        <p id="shipping">Free Shipping</p>
-                    </div>
-                    <div id="quantity">
-                        <span id="minus" onclick="updateMealQuantity(this)">-</span>
-                        <span id="value"></span>
-                        <span id="plus" onclick="updateMealQuantity(this)">+</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+ 
 -->

@@ -69,6 +69,10 @@ header i{
     padding: 1rem;
 }
 
+#qmeal_link{
+  text-decoration: none;
+}
+
 #qmeal{
     height: 100%;
     width: 120px;
@@ -77,6 +81,7 @@ header i{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 
 #qmeal img{
@@ -85,10 +90,16 @@ header i{
     border-radius: 90px;
     object-fit: cover;
     object-position: center;
+    
 }
 
 #qmeal p{
+  color: orangered;
     margin: 5px 0;
+    width: 85%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #infoBox{
@@ -265,16 +276,26 @@ header i{
     color: rgb(255, 102, 0);
 }
 
+#cartDiv{
+  border: 1px solid red;
+  max-height: 70vh;
+  overflow-y: auto
+}
+
 #mealcart{
-    height: 120px;
     display: flex;
     justify-content: space-between;
     padding: 10px;
     position: relative;
 }
 
+#mealcart input{
+  
+}
+
 #checkLabel{
-    width: 35%;
+  width: 35%;
+  position: relative;
     height: auto;
     display: flex;
     align-items: center;
@@ -284,24 +305,14 @@ header i{
 /*the div for the checkbox in the cart page*/
 
 
-#checkDiv input{
-    display: none;
-}
-
-#checkDiv .customCheckbox{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.customCheckbox{
     height: 20px;
     width: 20px;
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.44);
+    background-color: white;
 }
 
-#checkDiv input:checked ~ .customCheckbox{
-    border: none;
-    background: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(255, 89, 0), yellow);
-}
 
 #checkLabel img{
     width: 70px;
@@ -313,7 +324,7 @@ header i{
 }
 
 
-#checkinfo{
+.checkinfo{
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -336,7 +347,7 @@ header i{
     font-size: 10px;
 }
 
-#quantity{
+.quantity{
     border: 1px solid rgba(0, 0, 0, 0.268);
     display: flex;
     align-items: center;
@@ -347,14 +358,14 @@ header i{
 }
 
 
-#quantity span{
+.quantity span{
     font-size: 15px;
     padding: 10px 11px;
     border-right: 1px solid rgba(0, 0, 0, 0.268);
     
 }
 
-#quantity span:last-child{
+.quantity span:last-child{
     border: none;
 }
 
@@ -403,7 +414,7 @@ header i{
     background: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(255, 89, 0), yellow);
     color: white;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 15px;
     margin: 10px 0;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
