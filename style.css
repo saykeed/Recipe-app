@@ -4,7 +4,23 @@
     box-sizing: border-box;
 }
 
+body{
+  position: relative;
+}
 
+#togmenu{
+  height: calc(100vh - 70px);
+  width: 250px;
+  background: black;
+  color: white;
+  position: absolute;
+  top: 70px;
+  padding: 20px;
+ margin-left: -260px;
+ opacity: 0;
+ transition: 1s;
+ -webkit-tap-highlight-color: transparent;
+}
 
 header{
     display: flex;
@@ -19,6 +35,7 @@ header{
 
 #appLogo{
     width: 100px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 header a{
@@ -62,27 +79,30 @@ header i{
 }
 
 #quick_meals{
-    height: auto;
     background-color: rgba(166, 233, 248, 0.193);
-    display: flex;
-    overflow-x: scroll;
-    padding: 1rem;
+   display: flex;
+    overflow: auto;
+    padding: 1rem 2rem 1rem 0rem;
 }
 
 #qmeal_link{
   text-decoration: none;
+  
 }
 
 #qmeal{
     height: 100%;
-    width: 120px;
-    margin: 0 0.2rem;
-    display: flex;
+    min-width: 120px;
+    margin-right: 2px;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    overflow: hidden;
-}
+    
+} 
+
+
 
 #qmeal img{
     width: 90px;
@@ -94,12 +114,21 @@ header i{
 }
 
 #qmeal p{
-  color: orangered;
+    color: orangered;
+    text-align: center;
     margin: 5px 0;
     width: 85%;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    
+}
+
+.remove{
+  background: orangered;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
 #infoBox{
