@@ -48,7 +48,6 @@ let getCartedMeal = async function (id) {
                 </div>
             </div>
         `
-        
     }
 }
 
@@ -96,8 +95,7 @@ let updateMealQuantity = function (x, y, p) {
          let upmealTotalPrice = getupCheckedMealPrice.innerText;
          
          addMealPriceToCheckoutAmount(upmealTotalPrice);
-       
-     
+         
     } else if (x.innerText === "-") {
         if (mealQuantity.innerText < 2) {
           
