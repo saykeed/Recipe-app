@@ -83,6 +83,14 @@ header i{
    display: flex;
     overflow: auto;
     padding: 1rem 2rem 1rem 0rem;
+    
+}
+
+#favNote{
+  color: orangered;
+  font-weight: 700;
+  margin-left: 30px;
+  
 }
 
 #qmeal_link{
