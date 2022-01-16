@@ -28,9 +28,10 @@ let popMenu = function () {
 // fetching data section
 
 let getFavMeal =  async function (id) {
-   
-    if (id == null) {
-        favMealDiv.innerHTML = "Your Favourite meals will appear here"
+    if (id == null || id == "") {
+        favMealDiv.innerHTML = `
+         <p id="favNote">click the ❤️ icon to add meals here</p>
+        `
     } else {
         favMealDiv.innerHTML = "";
     }
@@ -46,16 +47,15 @@ let getFavMeal =  async function (id) {
                 <img src="${FmealData.strMealThumb}" alt="">
                 </a>
                 <p>${FmealData.strMeal}</p>
-                <div id="re${FmealData.idMeal}" class="remove" onclick="removeFav()">Remove</div>
+                <div id="re${FmealData.idMeal}" class="remove" onclick="removeFav(${FmealData.idMeal})">Remove</div>
             </div>
         `
     }
-    
 }
 
 
 
-
+// functions that loads the random meal
 let getRandomMeal = async function () {
     let Rmeal = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
 
@@ -65,8 +65,8 @@ let getRandomMeal = async function () {
     getRandomMealDiv.innerHTML = `
         <a href="mealinfo.html?id=${RmealData.idMeal}"><img src="${RmealData.strMealThumb}" alt="Random meal"></a>
         <div id="randomMealDesc">
-            <p>${RmealData.strMeal}<i class="material-icons" onclick="like(${RmealData.idMeal})">favorite_border</i></p>
-            
+            <p>${RmealData.strMeal}<i class="material-icons" id="fav${RmealData.idMeal}" onclick="like(${RmealData.idMeal})">favorite_border</i></p>
+ 
             <div id="rating">
                 <i class="material-icons">star</i>
                 <i class="material-icons">star</i>
@@ -101,8 +101,22 @@ let like = function () {
 }
 
 
-// saving, deleting and getting from local storage section
+// function that runs when the remove button on the favmeal is clicked 
 
+let removeFav = function (id) {
+   let getFavBtn = document.querySelector("#fav" + id);
+  let mealId = String(id);
+  let x = RmealData.idMeal;
+  if (mealId == x) {
+    getFavBtn.innerText = "favorite_border";
+  }
+   delFromLS(mealId);
+   getFavMealIdFromLS();
+}
+
+
+
+// saving, deleting and getting from local storage section
 let saveToLS = (mealId) => {
     let newData = mealId;
 
@@ -122,6 +136,7 @@ let delFromLS = (mealId) => {
     localStorage.setItem('favMealId', JSON.stringify(favMealsId.filter(favId => favId !== mealId)))
 }
 
+// getting fav meal id and loading then into the page
 let getFavMealIdFromLS = function () {
     const favMealsId = JSON.parse(localStorage.getItem('favMealId'));
     
