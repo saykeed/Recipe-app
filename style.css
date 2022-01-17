@@ -427,14 +427,18 @@ header i{
     justify-content: space-between;
 }
 
-#checkoutLabel{
-    display: flex;
-    align-items: center;
+#delete{
+  font-size: 30px;
+  color: orangered;
+  padding: 5px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-#checkoutLabel span{
-    margin-left: 30px;
-    cursor: pointer;
+#delete:active{
+  background-color: rgba(0, 0, 0, 0.250);
+  border-radius: 20px;
+  
 }
 
 #checkoutBtnDiv{

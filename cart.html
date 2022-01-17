@@ -11,20 +11,15 @@
 <body>
     <header>
         <a href="index.html"><img id="appLogo" src="images/app_logo.png" alt="app Logo"></a>
-        <h1 id="cartHeadTitle">Cart(<span>4</span>)</h1>
+        <h1 id="cartHeadTitle">Cart(<span></span>)</h1>
     </header>
     
     <!-- the carted meal are loaded with js-->
     <div id="cartDiv"></div>
     
+    
     <div id="cartcheckoutDiv">
-        <label for="all" id="checkoutLabel">
-            <div id="checkoutDiv">
-                <input type="checkbox" id="all">
-                <div class="customCheckoutbox"></div>
-            </div>
-            <span>All</span>
-        </label>
+        <i id="delete" onclick="delFromCart()" class="material-icons">delete</i>
          
         <div id="checkoutBtnDiv">
             <p id="checkoutPrice">NGN <span>0</span>.00</p>
