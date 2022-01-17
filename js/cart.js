@@ -1,4 +1,16 @@
 let getCartMealDiv = document.querySelector("#cartDiv");
+let getNumofCartedMeals = document.querySelector("#cartHeadTitle span");
+
+
+// function that get the number of carted meals and display at top of the cart page
+
+let numOfCartedMeals = () => {
+    const cartedMealsIds =  JSON.parse(localStorage.getItem('cartedMealId'));
+    let cartNum = cartedMealsIds.length;
+        getNumofCartedMeals.innerText = cartNum;
+    
+    
+}
 
 
 
@@ -133,6 +145,8 @@ let getCheckedMeal = function (id) {
   let getCheckBox = document.querySelector("#" + "in" + id);
   let getCheckedMealPrice = document.querySelector("#a" + id + " #priceAmount span");
   let mealTotalPrice = getCheckedMealPrice.innerText;
+  // converts the id from number to string
+  id = String(id);
   
   if (!getCheckBox.checked) {
     getcustomCheckBox.style.cssText = "background: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(255, 89, 0), yellow); border:none;";
@@ -146,9 +160,6 @@ let getCheckedMeal = function (id) {
    updateNumOfCheckedMeals();
    minusMealPriceFromCheckoutAmount(mealTotalPrice);
   }
-  
-  
-  //getCheckBoxStatus();
   
 }
 
@@ -219,8 +230,30 @@ let minusMealPriceFromCheckoutAmount = function (p) {
    
 }
 
+// function to reset the checkout price and the checkout span
+let resetCheckout = () => {
+  let getCheckoutAmount = document.querySelector("#checkoutPrice span");
+  let getCheckoutmeals = document.querySelector("#checkoutBtn span")
+  getCheckoutAmount.innerText = 0;
+  getCheckoutmeals.innerText = 0;
+}
 
 
+
+// function that runs when the delete icon is clicked
+let delFromCart = () => {
+  const CheckedMeals = JSON.parse(localStorage.getItem('checkedMealId'));
+  
+  for (var i = 0; i < CheckedMeals.length; i++) {
+    const cartMealsId = JSON.parse(localStorage.getItem('cartedMealId'));
+  localStorage.setItem('cartedMealId', JSON.stringify(cartMealsId.filter(favId => favId !== CheckedMeals[i])));
+  }
+  
+  getCartedMealIdFromLS();
+  numOfCartedMeals();
+  delFromLS();
+  resetCheckout();
+}
 
 
 
@@ -229,6 +262,7 @@ let minusMealPriceFromCheckoutAmount = function (p) {
 // invoking this function(s) whenever the cart page loads
 getCartedMealIdFromLS();
 delFromLS();
+numOfCartedMeals();
 
 
 

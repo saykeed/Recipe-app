@@ -27,7 +27,7 @@ let searchForMeal = async function () {
             <div id="searchedMeal">
                 <a href="mealinfo.html?id=${SmealData[i].idMeal}"><img src="${SmealData[i].strMealThumb}" alt="Searched meal"></a>
                 <div id="searchedMealDesc">
-                    <p>${SmealData[i].strMeal} <i class="material-icons" onclick="like()">favorite_border</i></p>
+                    <p>${SmealData[i].strMeal}</p>
                     <div id="rating">
                         <i class="material-icons">star</i>
                         <i class="material-icons">star</i>

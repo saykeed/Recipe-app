@@ -133,7 +133,7 @@ let saveToLS = (mealId) => {
 let delFromLS = (mealId) => {
     const favMealsId = JSON.parse(localStorage.getItem('favMealId'));
 
-    localStorage.setItem('favMealId', JSON.stringify(favMealsId.filter(favId => favId !== mealId)))
+    localStorage.setItem('favMealId', JSON.stringify(favMealsId.filter(favId => favId !== mealId)));
 }
 
 // getting fav meal id and loading then into the page
