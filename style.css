@@ -309,6 +309,7 @@ header i{
 
 /* styling for the cart page */
 
+
 #cartHeadTitle{
     color: rgb(255, 102, 0);
 }
@@ -379,7 +380,7 @@ header i{
     font-weight: 700;
 }
 
-#shipping{
+.shipping{
     color: blue;
     font-size: 10px;
 }
@@ -478,4 +479,192 @@ header i{
 #checkoutDiv input:checked ~ .customCheckoutbox{
     border: none;
     background: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(255, 89, 0), yellow);
+}
+
+/* styling for the checkout modal */
+
+#modal{
+  position: absolute;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.331);
+  border-radius: 10px;
+  width: 90vw;
+  max-height: 90vh;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  padding: 10px;
+  overflow: auto;
+  display: none;
+  transition: all .5s;
+}
+
+
+#modHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+#modHead span{
+  font-size: 30px;
+  color: red;
+}
+
+#modTab{
+  width: fit-content;
+  padding: 5px 15px;
+  background-color: orangered;
+  color: white;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin: 2px auto;
+}
+
+
+#address, #shippinginfo{
+  margin: 30px 0 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.531)
+}
+
+#location{
+  text-align: center;
+  margin: 5px auto;
+  border: 1px solid rgba(0, 0, 0, 0.131);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#yesno{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+#yes, #no{
+  width: 80px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 20px;
+  border: 1px solid orangered;
+}
+
+#yes{
+  background: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(255, 89, 0), yellow);
+  color: white;
+}
+
+#no{
+  color: orangered;
+}
+
+#inputAddress{
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid orangered;
+  border-radius: 20px;
+}
+
+#shipping{
+  border: 1px solid rgba(0, 0, 0, 0.268);
+  border-radius: 5px;
+  padding: 10px 5px 5px;
+}
+
+#eachorder{
+  border-radius: 5px;
+  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.104);
+  color: rgba(0, 0, 0, 0.531);
+  padding: 10px 5px;
+  margin-bottom: 10px;
+}
+
+#package{
+  font-weight: 600;
+  font-size: 11px;
+}
+
+#order{
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+#order span{
+  margin-right: 20px;
+}
+
+#eta{
+  font-size: 13px;
+  font-weight: 400;
+}
+
+#prepare{
+  font-size: 13px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
+}
+#prepare img{
+  width: 100px;
+}
+
+#total{
+  border: 1px solid rgba(0, 0, 0, 0.250);
+  border-radius: 5px;
+  padding: 10px 5px;
+  margin: 10px auto;
+}
+
+#total p{
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#total hr{
+  border: 1px solid rgba(0, 0, 0, 0.131);
+}
+#totalfee span{
+  color: orangered;
+}
+
+#propaymentBtn{
+  background: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(255, 89, 0),orange, yellow);
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  font-size: 15px;
+  padding: 13px;
+  border-radius: 5px;
+}
+
+#userAddress, #paymentMethod{
+  padding: 15px 5px;
+  border: 1px solid rgba(0, 0, 0, 0.204);
+  border-radius: 5px;
+}
+
+#paymentMethod{
+  margin-bottom: 10px;
+}
+
+#prevBtn{
+  border: 1px solid orangered;
+  text-align: center;
+  font-weight: 600;
+  color: orangered;
+  font-size: 15px;
+  padding: 13px;
+  border-radius: 5px;
+  margin: 5px auto;
 }
