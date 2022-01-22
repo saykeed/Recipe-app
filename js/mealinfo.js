@@ -137,6 +137,7 @@ let loadInstructionDiv = function () {
     let getReadDocIcon = document.querySelector(".docBtn i")
     if (instructionStatus === false) {
         getInstruction.style.display = "block";
+        getInstruction.classList.add('animate__animated', 'animate__slideInLeft');
         getReadDocIcon.style.transform= "rotate(180deg)";
         getInstruction.innerText = CmealData.strInstructions;
         instructionStatus = true;
@@ -151,6 +152,6 @@ let loadInstructionDiv = function () {
 
 
 
-getClickedMeal()
+getClickedMeal();
 
 

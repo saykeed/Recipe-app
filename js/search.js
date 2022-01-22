@@ -24,7 +24,7 @@ let searchForMeal = async function () {
     for (let i = 0; i < SmealData.length; i++) {
         
         getSearchResultBox.innerHTML += `
-            <div id="searchedMeal">
+            <div class ="animate__animated animate__slideInUp animate__fast" id="searchedMeal">
                 <a href="mealinfo.html?id=${SmealData[i].idMeal}"><img src="${SmealData[i].strMealThumb}" alt="Searched meal"></a>
                 <div id="searchedMealDesc">
                     <p>${SmealData[i].strMeal}</p>
