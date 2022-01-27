@@ -1,5 +1,6 @@
 let getCartMealDiv = document.querySelector("#cartDiv");
 let getNumofCartedMeals = document.querySelector("#cartHeadTitle span");
+let getParentModal = document.querySelector("#modalParent");
 let getModal = document.querySelector("#modal");
 
 
@@ -280,7 +281,7 @@ let checkingOut = async function () {
    alert("Nothing to checkout")
  } else {
  
- getModal.style.display = "block";
+ getParentModal.style.display = "block";
 
  getModal.innerHTML = `
           <div id="modHead">
@@ -391,8 +392,7 @@ let updateScroll = () => {
 
 // function that closes the modal whenever the close button is clicked
 let closeModal = function () {
-  
-  getModal.style.display = "none";
+  getParentModal.style.display = "none";
 }
 
 
@@ -431,7 +431,7 @@ let getEmail = document.querySelector("#confirmEmail span").innerText;
   
       email: getEmail,
       amount: sAmount * 100,
-      callback_url: 'https://www.google.com'
+      callback_url: 'https://saykeed.github.io/Recipe-app/verify.html'
     })
   
   };
