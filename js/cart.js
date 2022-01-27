@@ -288,6 +288,11 @@ let checkingOut = async function () {
             <h2>Checkout</h2>
           </div>
           <h4 id="modTab">Delivery</h4>
+          <p id="address">USER DETAILS</p>
+          <div id="userInfo" class ="animate__animated animate__slideInUp animate__faster">
+            <input class ="animate__animated animate__slideInUp animate__fast" id="inputUsername" type="text" placeholder="Username"/>
+            <input class ="animate__animated animate__slideInUp animate__fast" id="inputEmail" type="text" placeholder="User email address"/>
+          </div>
           <p id="address">ADDRESS DETAILS</p>
           <div id="location" class ="animate__animated animate__slideInUp animate__faster">
             <h3>Would you like this meal delivered to your current location?</h3>
@@ -336,33 +341,43 @@ let checkingOut = async function () {
 let loadPaymentTab = function () {
  let sAmount = Number(document.querySelector("#checkoutPrice span").innerText);
  let getDeliveryAddress = document.querySelector("#inputAddress");
+ let getUsername = document.querySelector("#inputUsername");
+ let getEmail = document.querySelector("#inputEmail");
+ let emailPattern = /^([\w\d-_]+)@([a-z-\.]+)\.([a-z]{2,9})([\.[a-z]{2,8})?$/
  
- if (getDeliveryAddress == null || getDeliveryAddress.value == "") {
+ if (getUsername.value == "") {
+   alert("Username cannot be empty")
+ } else if (getUsername.value.length < 3) {
+   alert("Username too short")
+   }else if (!emailPattern.test(getEmail.value)) {
+   alert("Kindly provide a valid email address")
+ } else if (getDeliveryAddress == null || getDeliveryAddress.value == "") {
    alert("Delivery address cannot be empty")
- } else {
+ } else if (getDeliveryAddress.value.length < 10) {
+   alert("Delivery address too short")
+   }else {
   getModal.innerHTML = `
          <div id="modHead">
             <span onclick="closeModal()">&times;</span>
             <h2>Checkout</h2>
          </div> 
          <h4 id="modTab">summary</h4> 
-         <p id ="address">YOUR ORDER</p> 
-         <div class ="animate__animated animate__slideInUp animate__fast" id="total">
-           <p id="subtotal">Subtotal <span>NGN  <span>${sAmount}</span>.00</span></p>
-            <p id="shippingFee">Shipping <span>free</span></p>
+         <p id ="address">CONFIRM THE DETAILS</p> 
+         <div class ="animate__animated animate__slideInUp animate__fast" id="confirm">
+           <p>Username: <span>${getUsername.value}</span></p>
             <hr>
-            <p id="totalfee">Total <span>NGN <span>${sAmount}</span>.00</span></p>
-           
+            <p id="confirmEmail">Email: <span>${getEmail.value}</span></p> 
+            <hr>
+            <p>Address: <span>${getDeliveryAddress.value}</span></p> 
+            <hr>
+            <p>Total: <span>NGN ${sAmount}.00</span></p>
            </div>
-          <p id="address">YOUR ADDRESS</p>
-          <div class ="animate__animated animate__slideInUp animate__fast" id="userAddress">${getDeliveryAddress.value}</div>
-             
        
         <p id="address">PAYMENT METHOD</p>
          <div id="paymentMethod">
            Pay now. Stay safe. Go cashless with Paystack
           </div>
-          <div id="propaymentBtn">CONFIRM</div>
+          <div id="propaymentBtn" onclick="callPaystack()">CONFIRM</div>
            <div onclick="checkingOut()" id="prevBtn">BACK TO DELIVERY TAB</div>
   `
   setTimeout(updateScroll, 10);
@@ -383,15 +398,53 @@ let closeModal = function () {
 
 // function that get the users location
 let getLocation = function () {
-  alert("we cant get your current location now, kindly click on the NO button 👉 to input ur address manually")
+  alert("Sorry, we cant get your current location now, kindly click on the NO button 👉 to input ur address manually")
 };
 
 let manuallyInputLocation = function () {
   let getLocationDiv = document.querySelector("#location");
-  getLocationDiv.innerHTML += `
-  <input class ="animate__animated animate__slideInDown animate__fast" id="inputAddress" type="text" placeholder="addresss here"/>
-  `
+ if (getLocationDiv.querySelector("input")) {
+   // do nothing
+ } else {
+   getLocationDiv.innerHTML += `
+     <input class ="animate__animated animate__slideInDown animate__fast" id="inputAddress" type="text" placeholder="User address here"/>
+    `
+ }
 }
+
+
+// function that runs when the confirm button is clicked to pay
+
+let callPaystack = function () {
+let sAmount = Number(document.querySelector("#checkoutPrice span").innerText);
+let getEmail = document.querySelector("#confirmEmail span").innerText;
+  
+  const options = {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer sk_test_27002a3d2b0750fe0dab8afc4e4305b2516d9969'
+    },
+  
+    body: JSON.stringify({
+  
+      email: getEmail,
+      amount: sAmount * 100,
+      callback_url: 'https://www.google.com'
+    })
+  
+  };
+  
+  let startPay = async function() {
+    fetch('https://api.paystack.co/transaction/initialize', options)
+      .then(response => response.json())
+      .then(response => window.location.href = response.data.authorization_url)
+      .catch(err => console.error(err));
+  }
+  startPay();
+}
+
 
 
 
