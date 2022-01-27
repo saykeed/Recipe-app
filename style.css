@@ -533,7 +533,7 @@ header i{
   color: rgba(0, 0, 0, 0.531)
 }
 
-#location{
+#location, #userInfo{
   text-align: center;
   margin: 5px auto;
   border: 1px solid rgba(0, 0, 0, 0.131);
@@ -565,12 +565,13 @@ header i{
   color: orangered;
 }
 
-#inputAddress{
+#inputAddress, #inputUsername, #inputEmail{
   width: 100%;
   height: 30px;
   padding: 10px;
   border: 1px solid orangered;
   border-radius: 20px;
+  margin: 5px auto;
 }
 
 #shipping{
@@ -618,21 +619,25 @@ header i{
   width: 100px;
 }
 
-#total{
+#total, #confirm{
   border: 1px solid rgba(0, 0, 0, 0.250);
   border-radius: 5px;
   padding: 10px 5px;
   margin: 10px auto;
 }
 
-#total p{
+#total p, #confirm p{
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
 }
 
-#total hr{
+#total hr, #confirm hr{
   border: 1px solid rgba(0, 0, 0, 0.131);
+}
+
+#confirm p span{
+  max-width: 60%;
 }
 #totalfee span{
   color: orangered;
