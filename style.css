@@ -483,6 +483,17 @@ header i{
 
 /* styling for the checkout modal */
 
+#modalParent{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.704);
+  display: none;
+  z-index: 999;
+}
+
 #modal{
   position: absolute;
   background-color: white;
@@ -493,11 +504,9 @@ header i{
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 999;
+  z-index: 9999;
   padding: 10px;
   overflow: auto;
-  display: none;
-  transition: all .5s;
 }
 
 
