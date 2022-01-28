@@ -328,7 +328,7 @@ let checkingOut = async function () {
         <p id="package">PACKAGE ${i + 1} OF ${sMeals.length}</p>
         <p id="order"> <span>${mealQuantity} x</span>${ShipmealData.strMeal}</p>
         <p id="eta">delivered to you in less than 1hour</p>
-        <p id="prepare">Prepared by <img src="images/logo-small.png" alt=""></p>
+        <p id="prepare">Prepared by <img src="images/logo-small.png" alt="app logo img"></p>
       </div>
     `
  };
