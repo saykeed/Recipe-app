@@ -315,7 +315,7 @@ header i{
 }
 
 #cartDiv{
-  border: 1px solid red;
+  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.104);
   max-height: 70vh;
   overflow-y: auto
 }
@@ -500,6 +500,7 @@ header i{
   border: 1px solid rgba(0, 0, 0, 0.331);
   border-radius: 10px;
   width: 90vw;
+  max-width: 500px;
   max-height: 90vh;
   top: 40px;
   left: 50%;
@@ -631,7 +632,7 @@ header i{
 #total, #confirm{
   border: 1px solid rgba(0, 0, 0, 0.250);
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 0px 5px;
   margin: 10px auto;
 }
 
@@ -646,8 +647,9 @@ header i{
 }
 
 #confirm p span{
-  max-width: 60%;
+  margin-left: 10px;
 }
+
 #totalfee span{
   color: orangered;
 }
@@ -660,6 +662,7 @@ header i{
   font-size: 15px;
   padding: 13px;
   border-radius: 5px;
+  margin: 5px auto;
 }
 
 #userAddress, #paymentMethod{
@@ -706,4 +709,21 @@ header i{
   border-radius: 5px;
   margin: 30px auto 0;
   text-decoration: none;
+}
+
+#resError{
+  display: none;
+}
+
+
+
+
+/*for the responsieve screen of big screen*/
+@media screen and (min-width:600px){
+   #resError{
+     display: block;
+   }
+   #quick_meals, #infoBox, #randomMeal, header{
+     display: none;
+   }
 }
