@@ -328,7 +328,7 @@ let checkingOut = async function () {
         <p id="package">PACKAGE ${i + 1} OF ${sMeals.length}</p>
         <p id="order"> <span>${mealQuantity} x</span>${ShipmealData.strMeal}</p>
         <p id="eta">delivered to you in less than 1hour</p>
-        <p id="prepare">Prepared by <img src="images/logo-small.png" alt="app logo img"></p>
+        <p id="prepare">Prepared by <img src="images/logo-small.png" alt=""></p>
       </div>
     `
  };
@@ -364,7 +364,7 @@ let loadPaymentTab = function () {
          </div> 
          <h4 id="modTab">summary</h4> 
          <p id ="address">CONFIRM THE DETAILS</p> 
-         <div class ="animate__animated animate__slideInUp animate__fast" id="confirm">
+         <div class ="animate__animated animate__slideInUp animate__faster" id="confirm">
            <p>Username: <span>${getUsername.value}</span></p>
             <hr>
             <p id="confirmEmail">Email: <span>${getEmail.value}</span></p> 
@@ -398,7 +398,7 @@ let closeModal = function () {
 
 // function that get the users location
 let getLocation = function () {
-  alert("Sorry, we cant get your current location now, kindly click on the NO button 👉 to input ur address manually")
+  alert("Sorry, we are unable to connect to google maps API, kindly click on the NO button 👉 to input ur address manually")
 };
 
 let manuallyInputLocation = function () {
@@ -462,28 +462,6 @@ numOfCartedMeals();
 /*
 
 
-getModal.classList.add('animate__animated', 'animate__slideInUp');
 
-
-
-
-<div id="eachorder">
-              <p id="package">PACKAGE 1 OF 1</p>
-              <p id="order">
-                <span>1 x</span>
-                the name of the meal...
-              </p>
-               <p id="eta">delivered to you in less than 1hour</p>
-              <p id="prepare">Prepared by <img src="images/logo-small.png" alt=""></p>
-            </div>
-            <div id="eachorder">
-              <p id="package">PACKAGE 1 OF 1</p>
-              <p id="order">
-                <span>1 x</span>
-                the name of the meal...
-              </p>
-              <p id="eta">delivered to you in less than 1hour</p>
-              <p id="prepare">Prepared by <img src="images/logo-small.png" alt=""></p>
-            </div>
 
 */
